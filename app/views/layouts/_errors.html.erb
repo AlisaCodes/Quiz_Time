@@ -1,0 +1,8 @@
+<% if @survey.errors.any? %>
+  <h3>Errors, man.</h3>
+  <ul>
+    <% @survey.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
