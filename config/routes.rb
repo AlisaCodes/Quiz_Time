@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  resources :surveys
+  resources :surveys do
+    resources :quizzes
+  end
 end

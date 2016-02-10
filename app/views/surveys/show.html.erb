@@ -1,8 +1,33 @@
 <h1><%= @survey.name %></h1>
 
 
-  <%= link_to "Return to Surveys List", surveys_path %>
+  
   <%= link_to "Edit", edit_survey_path(@survey) %>
   <%= link_to "Delete", survey_path(@survey),
                         :data => {:confirm => "You sure?",
                                   :method => "delete"} %>
+
+<% if @survey.quizzes.any? %>
+  <h4>Here are the questions for this quiz:</h4>
+
+  <ul>
+    <% @survey.quizzes.each do |quiz| %>
+      <li>
+        <%= quiz.question %> |
+        <!-- <%= link_to "Edit", edit_survey_quiz_path(@survey, quiz) %> |
+        <%= link_to "Delete", survey_quiz_path(@survey, quiz),
+                              :data => {:confirm => "Are you sure?",
+                                        :method => "delete"} %> -->
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  There are no questions!!!!!!!!!
+<% end %>
+
+<p><%= link_to "Add a Question", new_survey_quiz_path(@survey) %></p>
+<!-- <p><%= link_to "Delete Question", survey_path(@survey),
+                        :data => {:confirm => "Are you sure?",
+                                       :method => "delete"} %></p> -->
+
+<p><%= link_to "Return to Surveys", surveys_path %></p>
