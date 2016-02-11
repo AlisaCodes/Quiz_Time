@@ -12,10 +12,14 @@
 
   <ul>
     <% @survey.questions.each do |question| %>
-      <li>
-        <%= question.content %> |
+      <li><%= question.content %> | </li>
 
-      </li>
+      <% question.choices.each do |choice| %>
+        <li> <%= choice.content %> </li>
+        <% end %>
+
+        <li><%= link_to "Add a Choice!", new_question_choices_path(question) %></li>
+
     <% end %>
   </ul>
 <% else %>
