@@ -12,7 +12,9 @@
 
   <ul>
     <% @survey.questions.each do |question| %>
-      <li><%= question.content %> | </li>
+      <div class="questions">
+        <li><%= question.content %> | </li>
+      </div>
 
       <% question.choices.each do |choice| %>
         <li> <%= choice.content %> </li>

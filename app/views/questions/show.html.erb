@@ -1,0 +1,19 @@
+<h1><%= @survey.name %></h1>
+
+
+  Question: <%= @question.content %>
+
+  <p><%= link_to "Edit", edit_survey_path(@survey) %>
+  <%= link_to "Delete", survey_path(@survey),
+                        :data => {:confirm => "You sure?",
+                                  :method => "delete"} %></p>
+
+
+
+<% if @question.choices.any? %>
+  <h4>Answers:</h4>
+
+  <% @question.choices.each do |choice| %>
+    <li> <%= choice.content %> </li>
+  <% end %>
+<% end %>

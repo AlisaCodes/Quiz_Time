@@ -1,2 +1,16 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ body {
+   background: url('sky.jpeg');
+   font-size: 20px;
+ }
+
+ li {
+   list-style-type: none;
+ }
+
+.questions {
+  font-family: helvetica;
+  font-size: 40px;
+}

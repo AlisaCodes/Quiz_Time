@@ -1,4 +1,11 @@
 class QuestionsController < ApplicationController
+  def show
+    @survey = Survey.find(params[:survey_id])
+    # @question = @survey.questions.where(id: params[:id])
+
+    @question = Question.find(params[:id])
+  end
+
   def new
     @survey = Survey.find(params[:survey_id])
     @question = @survey.questions.new
