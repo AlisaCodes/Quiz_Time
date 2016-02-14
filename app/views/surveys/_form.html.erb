@@ -1,0 +1,12 @@
+<%= render "layouts/errors", :object => @survey %>
+
+<%= form_for @survey do |f| %>
+<div class="form-group">
+  <%= f.label :name, class: "label-control" %>
+  <%= f.text_field :name %><br>
+  <%= f.label "Result Option A", class: "label-control" %>
+  <%= f.text_area :resultA, class: "form-control" %><br>
+    <%= f.label "Result Option B", class: "label-control" %>
+  <%= f.text_area :resultB, class: "form-control" %><br>
+  <%= f.submit %>
+<% end %>
